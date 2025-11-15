@@ -1,0 +1,13 @@
+/* component or global CSS */
+.bg-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: #ffffff url('app/assets/bg.jpg') no-repeat center/cover;
+  filter: blur(6px);
+  transform: scale(1.01);
+    opacity: 0.6;
+}
+
+
+

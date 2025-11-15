@@ -1,0 +1,46 @@
+<div class="bg-layer"></div>
+<div class="container">
+  <div class="header">
+    <button class="back-btn" (click)="goBackToDashboard()">Back to Dashboard</button>
+    <h1 class="page-title">Expenses of {{ clientUsername }}</h1>
+    <button class="back-btn" (click)="router.navigate(['/login'])">logout</button>
+  </div>
+
+  <div class="total-section">
+    <span class="total-label">Total</span>
+    <div class="divider"></div>
+    <span class="total-amount">{{ totalAmount | number : '1.0-0' }}</span>
+  </div>
+
+  <div class="table-container">
+    <table class="expense-table">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Date</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngIf="loading">
+          <td colspan="5" style="text-align: center">Loading expenses...</td>
+        </tr>
+
+        <tr *ngFor="let e of expenses; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ e.title }}</td>
+          <td>{{ e.category }}</td>
+          <td>{{ e.date }}</td>
+          <td>{{ e.amount }}</td>
+        </tr>
+
+        <tr *ngIf="!loading && expenses.length === 0">
+          <td colspan="5" style="text-align: center">No expenses found</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

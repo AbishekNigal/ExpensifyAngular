@@ -1,0 +1,98 @@
+/* Page Container */
+.container {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.username-display {
+  font-size: 20px;
+  font-weight: 500;
+  background: #f1f1f1;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.page-title {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+/* Back button */
+.back-btn {
+  padding: 10px 25px;
+  border: 1px solid #000;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+}
+
+/* TOTAL Section */
+.total-section {
+  width: 400px;
+  margin: 20px auto;
+  padding: 20px 40px;
+  background: #f1f1f1;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  font-size: 24px;
+}
+
+.divider {
+  width: 1px;
+  height: 30px;
+  background: #000;
+}
+
+/* Table Styling */
+.table-container {
+  width: 100%;
+  margin-top: 40px;
+}
+
+.expense-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 18px;
+}
+
+/* Straighter curve on headers */
+.expense-table th {
+  background: #e4e4e4;
+  padding: 15px;
+  border-radius: 4px;        /* ← straighter corners */
+  text-align: left;
+}
+
+.expense-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.expense-table tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.expense-table tr:hover {
+  background: #f0f0f0;
+}
+
+/* Center align first and last columns */
+.expense-table td:first-child,
+.expense-table th:first-child,
+.expense-table td:last-child,
+.expense-table th:last-child {
+  text-align: center;
+}
+

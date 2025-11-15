@@ -1,0 +1,41 @@
+<div class="bg-layer"></div>
+<div class="container">
+  <div class="header">
+    <div class="dashboard-label">Admin Dashboard</div>
+    <h1 class="page-title">User List</h1>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+
+  <div class="table-container" *ngIf="!error">
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>User ID</th>
+          <th>Username</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="loading">
+          <td colspan="4" style="text-align: center">Loading users...</td>
+        </tr>
+
+        <tr *ngIf="!loading && users.length === 0">
+          <td colspan="4" style="text-align: center">No users found.</td>
+        </tr>
+
+        <tr *ngFor="let u of users; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ u.id }}</td>
+          <td>
+            <a class="username-link" (click)="openClientExpenses(u.id)">{{ u.username }}</a>
+          </td>
+          <td>{{ u.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="error" class="error">Error: {{ error }}</div>
+</div>

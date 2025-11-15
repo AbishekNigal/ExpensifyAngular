@@ -1,0 +1,41 @@
+<div class="bg-layer"></div>
+<div class="top-bar">
+  <div class="username-box">{{ username }}</div>
+  <button type="button" class="signout-btn" (click)="this.router.navigate(['/login'])">
+    logout
+  </button>
+</div>
+
+<div class="main">
+  <div class="expense-card">
+    <h2>Expense</h2>
+    <form (ngSubmit)="addExpense()" #expenseForm="ngForm">
+      <input type="text" [(ngModel)]="title" name="title" placeholder="Title" required />
+      <input type="text" [(ngModel)]="category" name="category" placeholder="Category" required />
+      <input type="date" [(ngModel)]="date" name="date" required />
+      <input type="number" [(ngModel)]="amount" name="amount" placeholder="Amount" required />
+      <button type="submit" class="add-btn">Add Expense</button>
+    </form>
+  </div>
+
+  <div class="total-box">
+    <h3>Total</h3>
+    <span>|</span>
+    <p>{{ totalAmount | number : '1.2-2' }}</p>
+  </div>
+
+  <div class="expense-list">
+    <div *ngIf="expenses.length === 0">No expenses added yet.</div>
+    <div *ngFor="let exp of expenses; let i = index" class="expense-item">
+      <span
+        >{{ i + 1 }}. {{ exp.title }} - {{ exp.category }} - {{ exp.date }} - ₹{{
+          exp.amount | number : '1.2-2'
+        }}</span
+      >
+      <div class="actions">
+        <button class="edit-btn" (click)="editExpense(exp)">Edit</button>
+        <button class="delete-btn" (click)="deleteExpense(exp.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

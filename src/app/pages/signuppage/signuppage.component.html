@@ -1,0 +1,47 @@
+<div class="bg-layer"></div>
+<div class="container">
+  <div class="card">
+    <div class="left-section">
+      <h1>Expensify</h1>
+      <p>
+        <strong>Join us and take control of your money!</strong><br />
+        Track, save, and grow your finances smarter.
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="right-section">
+      <form (ngSubmit)="signup()">
+        <input
+          type="text"
+          [(ngModel)]="username"
+          name="username"
+          placeholder="Enter Your Username"
+          required
+        />
+        <input
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="Enter Your Email"
+          required
+        />
+        <input
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="Choose Password"
+          required
+        />
+
+        <div class="buttons">
+          <button type="submit" class="btn">Sign up</button>
+          <button type="button" class="btn" (click)="router.navigate(['/login'])">
+            Back to Login
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
