@@ -23,11 +23,31 @@ export class SignupPageComponent {
   firestore = inject(Firestore);
   router = inject(Router);
 
-  async signup() {
-    if (!this.email || !this.password || !this.username) {
-      alert('Please fill out all fields.');
-      return;
-    }
+  async signup(form: any) {
+  let errorMessage = "";
+
+  if (!this.username || !this.email || !this.password) {
+    errorMessage += "Please fill in all fields.\n";
+  }
+
+  if (form.controls['username']?.errors?.['pattern']) {
+    errorMessage += "Username can only contain letters and numbers.\n";
+  }
+
+    if (form.controls['email']?.errors?.['email']) {
+    errorMessage += "Please enter a valid email address.\n";
+  }
+
+  if (form.controls['password']?.errors?.['pattern']) {
+    errorMessage +=
+      "Password must be 8–16 characters long and include at least one number.\n";
+  }
+
+
+  if (errorMessage) {
+    alert(errorMessage);
+    return;
+  }
 
     try {
       const userCredential = await createUserWithEmailAndPassword(

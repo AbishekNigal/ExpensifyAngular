@@ -12,6 +12,6 @@ export const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'signup',component: SignupPageComponent},
   { path: 'admin',component: AdminDashboardComponent},
-  { path: 'client-expenses', component: ClientExpensesComponent }
+  { path: 'client-expenses', component: ClientExpensesComponent}
 
 ];

@@ -20,6 +20,9 @@
           placeholder="Password"
           required
         />
+        <div class="forgot-password">
+          <a (click)="openForgotPassword()">Forgot password?</a>
+        </div>
         <div class="buttons">
           <button type="submit" class="btn">Sign in</button>
           <button type="button" class="btn" (click)="this.router.navigate(['/signup'])">

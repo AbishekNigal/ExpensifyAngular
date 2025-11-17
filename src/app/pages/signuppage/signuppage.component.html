@@ -12,13 +12,15 @@
     <div class="divider"></div>
 
     <div class="right-section">
-      <form (ngSubmit)="signup()">
+      <form #form="ngForm" (ngSubmit)="signup(form)">
         <input
           type="text"
           [(ngModel)]="username"
           name="username"
           placeholder="Enter Your Username"
           required
+          pattern="^[A-Za-z0-9]+$"
+          title="Username can only contain letters and numbers."
         />
         <input
           type="email"
@@ -31,8 +33,10 @@
           type="password"
           [(ngModel)]="password"
           name="password"
+          pattern="(?=.*\d).{8,16}"
           placeholder="Choose Password"
           required
+          title="Password must be 8–16 characters and include at least one number."
         />
 
         <div class="buttons">

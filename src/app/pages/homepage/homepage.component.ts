@@ -33,12 +33,16 @@ export class HomePageComponent implements OnInit {
   expenses: any[] = [];
   totalAmount = 0;
 
+  isEditMode=false;
 
   title = '';
   category = '';
   date = '';
   amount: number | null = null;
   editId: string | null = null;
+
+  today = new Date().toISOString().split('T')[0];
+
 
   ngOnInit() {
 
@@ -96,6 +100,9 @@ export class HomePageComponent implements OnInit {
   async deleteExpense(id: string) {
     if (!this.currentUserUID) return;
 
+      const confirmed = confirm("Are you sure you want to delete this expense?");
+      if (!confirmed) return; 
+
     return runInInjectionContext(this.firestore as any, async () => {
       const expenseRef = doc(this.firestore, `users/${this.currentUserUID}/expenses`, id);
       await deleteDoc(expenseRef);
@@ -109,6 +116,7 @@ export class HomePageComponent implements OnInit {
     this.date = expense.date;
     this.amount = expense.amount;
     this.editId = expense.id;
+    this.isEditMode=true;
   }
 
 async addExpense() {
@@ -131,7 +139,7 @@ async addExpense() {
 
   await this.saveExpense(expense);
 
-
+  this.isEditMode=false;
   this.title = '';
   this.category = '';
   this.date = '';
@@ -142,6 +150,6 @@ async addExpense() {
   updateTotal() {
     this.totalAmount = this.expenses.reduce((sum, exp) => sum + (exp.amount || 0), 0);
   }
-}
+} 
 
 

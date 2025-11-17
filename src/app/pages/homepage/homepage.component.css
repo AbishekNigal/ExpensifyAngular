@@ -90,7 +90,8 @@ body {
     color: #222;
   }
   
-  .expense-card input {
+  .expense-card input,
+  .expense-card select {
     width: 100%;
     padding: 12px;
     margin-bottom: 12px;
@@ -100,7 +101,22 @@ body {
     font-size: 14px;
     box-sizing: border-box;
   }
-  
+
+  .expense-card input::placeholder{
+  color: #000;
+  opacity: 0.7;
+  }
+
+  .expense-card select {
+  background: url("data:image/svg+xml;utf8,<svg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'><polyline points='20,50 70,90 120,50' stroke='black' stroke-width='15' fill='none' stroke-linecap='round'/></svg>")
+  no-repeat right 12px center;
+  background-size: 16px;
+  background-color: white; 
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  }
+
   .add-btn {
     background-color: transparent;
     border: 1.5px solid #333;

@@ -132,3 +132,27 @@ body {
     background-color: #333;
     color: white;
   }
+
+.forgot-password {
+  margin-top: 8px;
+  text-align: right; 
+}
+
+.forgot-password a {
+  font-size: 0.85rem;
+  color: #000000;        
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.forgot-password a:hover,
+.forgot-password a:focus {
+  color: #404040;
+  text-decoration: underline;
+}
+
+.right-section form:disabled .forgot-password a {
+  color: #9ca3af;
+  pointer-events: none;
+}
