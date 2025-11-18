@@ -6,6 +6,11 @@
     <button class="logout-btn" (click)="logout()">Logout</button>
   </div>
 
+  <div class="dashboard-widgets">
+    <div class="widget">Total Users: {{ users.length }}</div>
+    <div class="widget">Admins: {{ adminCount }}</div>
+  </div>
+
   <div class="table-container" *ngIf="!error">
     <table class="user-table">
       <thead>
@@ -14,15 +19,17 @@
           <th>User ID</th>
           <th>Username</th>
           <th>Email</th>
+          <th>Role</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngIf="loading">
-          <td colspan="4" style="text-align: center">Loading users...</td>
+          <td colspan="6" style="text-align: center">Loading users...</td>
         </tr>
 
         <tr *ngIf="!loading && users.length === 0">
-          <td colspan="4" style="text-align: center">No users found.</td>
+          <td colspan="6" style="text-align: center">No users found.</td>
         </tr>
 
         <tr *ngFor="let u of users; let i = index">
@@ -32,6 +39,16 @@
             <a class="username-link" (click)="openClientExpenses(u.id)">{{ u.username }}</a>
           </td>
           <td>{{ u.email }}</td>
+          <td>{{ u.role }}</td>
+          <td>
+            <button
+              class="delete-btn"
+              [ngClass]="{ disabled: u.role === 'admin' }"
+              (click)="deleteUser(u)"
+            >
+              Delete
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>

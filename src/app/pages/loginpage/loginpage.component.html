@@ -13,16 +13,30 @@
     <div class="right-section">
       <form (ngSubmit)="login()">
         <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required />
-        <input
-          type="password"
-          [(ngModel)]="password"
-          name="password"
-          placeholder="Password"
-          required
-        />
+
+        <div class="password-field">
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            [(ngModel)]="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+          <span
+            class="eye-icon"
+            (click)="togglePasswordVisibility()"
+            tabindex="0"
+            [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'"
+            (keydown.enter)="togglePasswordVisibility()"
+          >
+            {{ showPassword ? '🐵' : '🙈' }}
+          </span>
+        </div>
+
         <div class="forgot-password">
           <a (click)="openForgotPassword()">Forgot password?</a>
         </div>
+
         <div class="buttons">
           <button type="submit" class="btn">Sign in</button>
           <button type="button" class="btn" (click)="this.router.navigate(['/signup'])">

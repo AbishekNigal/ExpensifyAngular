@@ -134,7 +134,7 @@ body {
   }
 
 .forgot-password {
-  margin-top: 8px;
+  margin-top: 0px;
   text-align: right; 
 }
 
@@ -155,4 +155,49 @@ body {
 .right-section form:disabled .forgot-password a {
   color: #9ca3af;
   pointer-events: none;
+}
+
+.password-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.password-field input {
+  flex: 1;
+  width: 100%;
+  padding: 12px 15px;
+  padding-right: 38px; /* Extra space for the icon */
+  border: none;
+  border-radius: 10px;
+  background-color: #fff;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+  transition: box-shadow 0.16s;
+}
+
+.password-field input:focus {
+  box-shadow: 0 0 0 1px #000000;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 22px;
+  color: #999;
+  user-select: none;
+  transition: color 0.2s;
+  padding: 2px 4px;
+  border-radius: 5px;
+}
+
+.eye-icon:hover,
+.eye-icon:focus {
+  color: #ffffff;
+  background: #ffffff;
 }

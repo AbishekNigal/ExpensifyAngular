@@ -1,11 +1,10 @@
-/* Page Container */
+
 .container {
   width: 90%;
   margin: 0 auto;
   padding-top: 40px;
 }
 
-/* Header */
 .header {
   display: flex;
   justify-content: space-between;
@@ -22,11 +21,10 @@
 }
 
 .page-title {
-  font-size: 40px;
+  font-size: 32px;
   font-weight: bold;
 }
 
-/* Back button */
 .back-btn {
   padding: 10px 25px;
   border: 1px solid #000;
@@ -35,7 +33,6 @@
   cursor: pointer;
 }
 
-/* TOTAL Section */
 .total-section {
   width: 400px;
   margin: 20px auto;
@@ -55,7 +52,6 @@
   background: #000;
 }
 
-/* Table Styling */
 .table-container {
   width: 100%;
   margin-top: 40px;
@@ -67,11 +63,10 @@
   font-size: 18px;
 }
 
-/* Straighter curve on headers */
 .expense-table th {
   background: #e4e4e4;
   padding: 15px;
-  border-radius: 4px;        /* ← straighter corners */
+  border-radius: 4px; 
   text-align: left;
 }
 
@@ -88,7 +83,6 @@
   background: #f0f0f0;
 }
 
-/* Center align first and last columns */
 .expense-table td:first-child,
 .expense-table th:first-child,
 .expense-table td:last-child,

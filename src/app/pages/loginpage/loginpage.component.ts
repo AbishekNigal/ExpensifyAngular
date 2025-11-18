@@ -96,7 +96,6 @@ export class LoginPageComponent {
   const emailInput = prompt('Enter your email to reset password:');
 
   if (!emailInput) {
-    // user cancelled
     return;
   }
 
@@ -110,7 +109,6 @@ export class LoginPageComponent {
     await sendPasswordResetEmail(this.auth, email);
     alert('Password reset email has been sent. Please check your inbox.');
   } catch (err: any) {
-    console.log('RESET PASSWORD ERROR:', err.code, err.message);
 
     switch (err.code) {
       case 'auth/user-not-found':
@@ -127,6 +125,13 @@ export class LoginPageComponent {
     }
   }
 }
+
+showPassword = false;
+
+togglePasswordVisibility() {
+  this.showPassword = !this.showPassword;
+}
+
 
 }
 
